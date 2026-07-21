@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="./assets/nemax-logo.png" width="180" alt="NEMAX Logo">
+
 # ⚡ SPDA Risk Assessment Tool
 
 ### Automated lightning protection risk assessment per ABNT NBR 5419-2:2026
@@ -20,7 +22,7 @@
 ## 📸 Preview
 
 > _Add a screenshot or short GIF of the wizard here — this is the single highest-impact addition you can make. A 10-second screen recording converted to GIF works great._
-> `![Preview](./preview.gif)`
+> `![Preview](./assets/preview.gif)`
 
 ---
 
@@ -39,6 +41,8 @@ A guided 9-module wizard that walks through the full NBR 5419-2 risk assessment 
 | ✏️ **Auditable manual override** | Any auto-calculated value can be manually adjusted — the original normative value is always preserved |
 | 💾 **Offline-first persistence** | Data saved locally via `localStorage`, with JSON export/import |
 | 🖨️ **PDF report generation** | Native browser print engine, no server round-trip |
+
+> **Note:** the tool's interface is in Portuguese, as it implements a Brazilian regulatory standard (NBR 5419) for the Brazilian engineering market.
 
 ## 🛠️ Tech Stack
 
