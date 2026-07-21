@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/nemax-logo.png" width="180" alt="NEMAX Logo">
+<img src="./assets/nemax-logo-v2.png" width="180" alt="NEMAX Logo">
 
 # ⚡ SPDA Risk Assessment Tool
 
@@ -21,24 +21,24 @@
 
 ## 📸 Preview
 
-> _Add a screenshot or short GIF of the wizard here — this is the single highest-impact addition you can make. A 10-second screen recording converted to GIF works great._
+> _Add a screenshot or short GIF of the wizard here. This is the single highest-impact addition you can make. A 10-second screen recording converted to GIF works great._
 > `![Preview](./assets/preview.gif)`
 
 ---
 
 ## 🎯 The Problem
 
-Risk assessment under NBR 5419-2 requires combining dozens of normative tables and structural/environmental parameters into a multi-step probability calculation. Commercial software for this is expensive, generic, and not built around how Brazilian engineers actually move through the standard section by section. Most practitioners fall back on spreadsheets — error-prone and hard to audit.
+Risk assessment under NBR 5419-2 requires combining dozens of normative tables and structural/environmental parameters into a multi-step probability calculation. Commercial software for this is expensive, generic, and not built around how Brazilian engineers actually move through the standard section by section. Most practitioners fall back on spreadsheets that are error-prone and hard to audit.
 
 ## ✅ The Solution
 
-A guided 9-module wizard that walks through the full NBR 5419-2 risk assessment process — from structure characterization to final risk comparison (R ≤ R_T):
+A guided 9-module wizard that walks through the full NBR 5419-2 risk assessment process, from structure characterization to final risk comparison (R ≤ R_T):
 
 | Feature | Description |
 |---|---|
 | 🗺️ **Automatic N_G lookup** | Lightning flash density for any of Brazil's ~5,570 municipalities, sourced from the standard's official Table F.1 (Annex F) |
-| 🧮 **Full calculation engine** | Implements the standard's risk components (R1–R4) and loss factors |
-| ✏️ **Auditable manual override** | Any auto-calculated value can be manually adjusted — the original normative value is always preserved |
+| 🧮 **Full calculation engine** | Implements the standard's risk components (R1 to R4) and loss factors |
+| ✏️ **Auditable manual override** | Any auto-calculated value can be manually adjusted. The original normative value is always preserved |
 | 💾 **Offline-first persistence** | Data saved locally via `localStorage`, with JSON export/import |
 | 🖨️ **PDF report generation** | Native browser print engine, no server round-trip |
 
@@ -46,15 +46,15 @@ A guided 9-module wizard that walks through the full NBR 5419-2 risk assessment 
 
 ## 🛠️ Tech Stack
 
-Vanilla HTML/CSS/JavaScript — no framework, no build step, no dependencies. Single self-contained file (~7,300 lines), runs entirely client-side.
+Vanilla HTML, CSS and JavaScript. No framework, no build step, no dependencies. Single self-contained file (about 7,300 lines), runs entirely client-side.
 
 ## 💡 What I Learned
 
-Translating a dense regulatory standard into a deterministic calculation engine meant treating the normative tables as the actual source of truth in code — not paraphrasing them, but encoding them exactly, with traceability back to the specific clause/table they came from. That discipline — and the manual-override-with-audit-trail pattern — came directly from real inspection work in the field, where "what the norm says" vs. "what the engineer decided" has to stay auditable.
+Translating a dense regulatory standard into a deterministic calculation engine meant treating the normative tables as the actual source of truth in code, not paraphrasing them, but encoding them exactly, with traceability back to the specific clause or table they came from. That discipline, and the manual-override-with-audit-trail pattern, came directly from real inspection work in the field, where what the norm says and what the engineer decided both have to stay auditable.
 
 ## 🚧 Roadmap
 
-- [ ] Part 4 — internal electronic systems / SPD zoning
+- [ ] Part 4: internal electronic systems and SPD zoning
 - [ ] Cross-module validation checks
 - [ ] Interactive SVG schematic view
 - [ ] Laudo (report) revision history
@@ -67,6 +67,6 @@ Actively used in real SPDA engineering work.
 
 <div align="center">
 
-Built by **[Giuseppe Maset Neto](https://nemaxengenharia.com.br)** — Electrical Engineer (CREA-PR 138473/D)
+Built by **[Giuseppe Maset Neto](https://nemaxengenharia.com.br)**, Electrical Engineer (CREA-PR 138473/D)
 
 </div>
