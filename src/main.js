@@ -9,8 +9,12 @@
  */
 import { NEMAX_CALC } from "./engine/nbr5419-2.js";
 import { NEMAX_CALC_P3 } from "./engine/nbr5419-3.js";
+import { NEMAX_CALC_P4 } from "./engine/nbr5419-4.js";
+import { NEMAX_CALC_P4_CAMPO } from "./engine/nbr5419-4-anexo-a.js";
 
 Object.assign(window, {
   NEMAX_CALC,
   NEMAX_CALC_P3,
+  NEMAX_CALC_P4,
+  NEMAX_CALC_P4_CAMPO,
 });
