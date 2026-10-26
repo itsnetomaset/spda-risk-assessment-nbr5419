@@ -10947,12 +10947,12 @@
      "substituicao": "Para NP III e H = 44.71 m (H efetivo = 44.71 m — 5.3.2.13): α ≈ 22.6°. Raio de proteção na base do cone = H × tan(α) = 44.71 × tan(22.6°) = 18.57 m."
     },
     {
-     "value": 22.19999531725592,
-     "raioProtecaoBase": 18.364155545603523,
+     "value": 22.296363636363637,
+     "raioProtecaoBase": 18.45250872250706,
      "aplicavel": true,
      "formula": "α = f(H, NP) — curva digitalizada da Figura 1; r = H × tan(α)",
      "norma": "ABNT NBR 5419-3:2026, 5.3.2.8 a 5.3.2.13, Figura 1, Anexo A.1.2",
-     "substituicao": "Para NP III e H = 45 m (H efetivo = 45.00 m — 5.3.2.13): α ≈ 22.2°. Raio de proteção na base do cone = H × tan(α) = 45 × tan(22.2°) = 18.36 m."
+     "substituicao": "Para NP III e H = 45 m (H efetivo = 45.00 m — 5.3.2.13): α ≈ 22.3°. Raio de proteção na base do cone = H × tan(α) = 45 × tan(22.3°) = 18.45 m."
     },
     {
      "value": null,

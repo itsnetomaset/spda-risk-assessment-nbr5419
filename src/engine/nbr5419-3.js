@@ -170,7 +170,9 @@ export const NEMAX_CALC_P3 = (function () {
     if (Heff <= pontos[0][0]) {
       alfa = pontos[0][1];
     } else {
-      let lo = pontos[0], hi = pontos[pontos.length - 1];
+      // Acima do último vértice digitalizado (só ocorre no NP III, entre
+      // 44,71 m e H_máx = 45 m) prolonga-se o último trecho da curva.
+      let lo = pontos[pontos.length - 2], hi = pontos[pontos.length - 1];
       for (let i = 0; i < pontos.length - 1; i++) {
         if (Heff >= pontos[i][0] && Heff <= pontos[i + 1][0]) {
           lo = pontos[i]; hi = pontos[i + 1];

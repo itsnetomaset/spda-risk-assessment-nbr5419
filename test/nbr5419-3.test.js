@@ -65,6 +65,11 @@ describe("protection angle (Figure 1)", () => {
       }
     }
   });
+  test("between the last digitized vertex and H_max the last segment of the curve is extended", () => {
+    // NP III: last vertices (43.94 m, 23.26°) and (44.71 m, 22.56°); H_max = 45 m
+    const inclinacao = (22.56 - 23.26) / (44.71 - 43.94);
+    assertClose(P3.calc_anguloProtecao("III", 45).value, 22.56 + inclinacao * (45 - 44.71));
+  });
   test("protection radius at ground level r = H · tan(α)", () => {
     const r = P3.calc_anguloProtecao("II", 10);
     assertClose(r.raioProtecaoBase, 10 * Math.tan((r.value * Math.PI) / 180));
