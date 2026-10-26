@@ -7,6 +7,7 @@
  * index.html loads this module before js/app.js; both are deferred and run in
  * document order.
  */
+import { NEMAX_MUNICIPIOS } from "./data/municipios.js";
 import { NEMAX_CALC } from "./engine/nbr5419-2.js";
 import { NEMAX_CALC_R4 } from "./engine/nbr5419-2-anexo-d.js";
 import { NEMAX_CALC_P3 } from "./engine/nbr5419-3.js";
@@ -14,6 +15,7 @@ import { NEMAX_CALC_P4 } from "./engine/nbr5419-4.js";
 import { NEMAX_CALC_P4_CAMPO } from "./engine/nbr5419-4-anexo-a.js";
 
 Object.assign(window, {
+  NEMAX_MUNICIPIOS,
   NEMAX_CALC,
   NEMAX_CALC_P3,
   NEMAX_CALC_P4,
