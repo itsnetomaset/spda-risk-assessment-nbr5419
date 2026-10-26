@@ -1,0 +1,14 @@
+{
+  "name": "spda-risk-assessment-nbr5419",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lightning protection risk assessment, SPDA sizing and SPD zoning per ABNT NBR 5419:2026 (Parts 2, 3 and 4)",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

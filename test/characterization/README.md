@@ -12,6 +12,6 @@ The scenarios cover:
 - direct sweeps over every exported function and table of the Part 2, 3 and 4 engines;
 - a hash of the 5,572-row N_G municipality table (Part 2, Annex F).
 
-`test/characterization.test.js` runs the same scenarios against the ES modules in `src/` and requires the results to match this file exactly. The only field excluded is the `calculadoEm` timestamp.
+`test/characterization.test.js` runs the same scenarios against the ES modules in `src/` under Node. Texts, flags and structure must match exactly; numbers are compared with a relative tolerance of 1e-12, because Node and Chromium ship different V8 versions whose transcendental functions (`Math.tan`, `Math.cbrt`, `Math.pow`) can differ in the last bit (38 of the recorded values differ, by at most 4e-16 relative). In Chromium, the refactored app reproduces the baseline bit for bit, including the HTML of all 11 wizard modules and of the printed report. The only field excluded is the `calculadoEm` timestamp.
 
 The baseline must not be regenerated to make a test pass. A difference means behavior changed: either fix the code or, if the change is an intentional correction, update the baseline in its own commit that explains why.
