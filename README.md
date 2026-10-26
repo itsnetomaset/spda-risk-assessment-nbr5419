@@ -4,7 +4,7 @@
 
 # ⚡ SPDA Risk Assessment Tool
 
-### Automated lightning protection risk assessment per ABNT NBR 5419-2:2026
+### Lightning protection risk assessment, SPDA sizing and SPD zoning per ABNT NBR 5419:2026 (Parts 2, 3 and 4)
 
 [![Live Demo](https://img.shields.io/badge/demo-live-brightgreen?style=for-the-badge)](https://itsnetomaset.github.io/spda-risk-assessment-nbr5419/)
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
@@ -21,8 +21,12 @@
 
 ## 📸 Preview
 
-> _Add a screenshot or short GIF of the wizard here. This is the single highest-impact addition you can make. A 10-second screen recording converted to GIF works great._
-> `![Preview](./assets/preview.gif)`
+<p align="center">
+  <img src="./assets/preview-wizard.png" alt="Analysis wizard, module 1 of 11" width="90%">
+</p>
+<p align="center">
+  <img src="./assets/preview-dashboard.png" alt="Dashboard" width="90%">
+</p>
 
 ---
 
@@ -32,12 +36,15 @@ Risk assessment under NBR 5419-2 requires combining dozens of normative tables a
 
 ## ✅ The Solution
 
-A guided 9-module wizard that walks through the full NBR 5419-2 risk assessment process, from structure characterization to final risk comparison (R ≤ R_T):
+A guided 11-module wizard that walks through the full NBR 5419 workflow: risk assessment per Part 2 (structure characterization through final risk comparison, R ≤ R_T), physical SPDA sizing per Part 3, surge protection measures (MPS) per Part 4, calculation memory and the final PDF report:
 
 | Feature | Description |
 |---|---|
 | 🗺️ **Automatic N_G lookup** | Lightning flash density for any of Brazil's ~5,570 municipalities, sourced from the standard's official Table F.1 (Annex F) |
 | 🧮 **Full calculation engine** | Implements the standard's risk components (R1 to R4) and loss factors |
+| 🏗️ **SPDA sizing (Part 3)** | Physical dimensioning of the lightning protection system based on the selected protection level |
+| 🔌 **Surge protection (Part 4)** | Lightning protection zones (ZPR 0A, 0B, 1, 2) and SPD (DPS) specification |
+| 📑 **Calculation memory** | Step-by-step record of every input, table lookup and intermediate result |
 | ✏️ **Auditable manual override** | Any auto-calculated value can be manually adjusted. The original normative value is always preserved |
 | 💾 **Offline-first persistence** | Data saved locally via `localStorage`, with JSON export/import |
 | 🖨️ **PDF report generation** | Native browser print engine, no server round-trip |
@@ -46,7 +53,7 @@ A guided 9-module wizard that walks through the full NBR 5419-2 risk assessment 
 
 ## 🛠️ Tech Stack
 
-Vanilla HTML, CSS and JavaScript. No framework, no build step, no dependencies. Single self-contained file (about 7,300 lines), runs entirely client-side.
+Vanilla HTML, CSS and JavaScript. No framework, no build step, no dependencies. Single self-contained `index.html` (about 7,300 lines), runs entirely client-side.
 
 ## 💡 What I Learned
 
@@ -54,7 +61,8 @@ Translating a dense regulatory standard into a deterministic calculation engine 
 
 ## 🚧 Roadmap
 
-- [ ] Part 4: internal electronic systems and SPD zoning
+- [x] Part 3: physical SPDA sizing
+- [x] Part 4: surge protection measures and SPD zoning
 - [ ] Cross-module validation checks
 - [ ] Interactive SVG schematic view
 - [ ] Laudo (report) revision history
