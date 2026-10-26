@@ -11,6 +11,8 @@ import { NEMAX_MUNICIPIOS } from "./data/municipios.js";
 import { NEMAX_CALC } from "./engine/nbr5419-2.js";
 import { NEMAX_CALC_R4 } from "./engine/nbr5419-2-anexo-d.js";
 import { Calculo, calcularR4 } from "./engine/analise-risco.js";
+import { calcularPontoDPS, calcularAvaliacaoCampo } from "./engine/mps.js";
+import { calcularQuantitativoMateriais } from "./engine/quantitativo-materiais.js";
 import { NEMAX_CALC_P3 } from "./engine/nbr5419-3.js";
 import { NEMAX_CALC_P4 } from "./engine/nbr5419-4.js";
 import { NEMAX_CALC_P4_CAMPO } from "./engine/nbr5419-4-anexo-a.js";
@@ -24,4 +26,7 @@ Object.assign(window, {
   NEMAX_CALC_R4,
   Calculo,
   calcularR4,
+  calcularPontoDPS,
+  calcularAvaliacaoCampo,
+  calcularQuantitativoMateriais,
 });
