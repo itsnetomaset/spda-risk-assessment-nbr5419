@@ -108,11 +108,11 @@ flowchart LR
 npm test        # runs node --test test/*.test.js (Node 20 or later, nothing to install)
 ```
 
-Three layers, 148 tests:
+Three layers, 152 tests:
 
 - **Normative reference tests** (`test/nbr5419-*.test.js`) check the tables against the normative values transcribed from the standard and every equation against numbers worked out by hand in the test itself, each test named after the clause, table or equation it covers. They include a complete Part 2 analysis of a house computed step by step, with and without an SPDA, and a consistency check showing that the rounded coefficients of Part 4, Eq. (A.27) to (A.42), agree with the general equations derived from μ0 and the front times of Part 1, Table 3.
 - **Characterization tests** (`test/characterization.test.js`) run 9 complete analyses, 12 SPD points, 16 field evaluations and sweeps over every engine function, and compare the results with what the original single-file version calculated for the same inputs (see below).
-- **Wiring tests** check that `index.html` loads the engine before the interface and that every engine export is published for it.
+- **Wiring and interface tests** check that `index.html` loads the engine before the interface, that every engine export is published for it, and load `js/app.js` in a Node `vm` context to test the logic the interface owns.
 
 Introducing small changes on purpose (a coefficient in Eq. (A.6), one point of Figure 1, a value of Table A.1 or of Table F.1) makes the suite fail in every case.
 
@@ -125,6 +125,8 @@ Introducing small changes on purpose (a coefficient in Eq. (A.6), one point of F
 The tool started as a single `index.html` of about 7,300 lines. Before any code moved, a scripted run inside that original file recorded the results of every scenario above (`test/characterization/baseline.json`). The code was then moved one block at a time, in small commits, and after each commit the same run was repeated in headless Chromium.
 
 In Chromium, the refactored app reproduces the original bit for bit: all calculated values, the calculation memory, the HTML of all 11 wizard modules and of the printed report for 10 analyses, with the same console output. In Node, 38 of the recorded numbers differ only in the last bit (at most 4 × 10⁻¹⁶ relative), because Node and Chromium ship different versions of V8 whose `Math.tan`, `Math.cbrt` and `Math.pow` round differently; the characterization tests therefore compare numbers with a relative tolerance of 10⁻¹².
+
+The refactoring itself changed no result. After it, three corrections were made in separate commits (critical systems in Part 4, C.2.1.9 c); the end of the level III curve in Part 3, Figure 1; and N_G = 0 accepted as a valid input). Each one updated the baseline in the same commit, and the entries it changed are listed in [`test/characterization/README.md`](test/characterization/README.md).
 
 ## 🚀 Running locally
 

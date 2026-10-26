@@ -546,7 +546,8 @@ function moduloCompleto(analise, idx) {
   const id = MODULOS[idx].id;
   if (id === "identificacao") return !!analise.identificacao.cliente;
   if (id === "estrutura") return !!analise.estrutura.comprimento;
-  if (id === "atmosferico") return !!analise.atmosferico.ng;
+  // N_G = 0 é um valor válido da Tabela F.1 (Fernando de Noronha): só falta dado se não houver número
+  if (id === "atmosferico") return typeof analise.atmosferico.ng === "number" && !isNaN(analise.atmosferico.ng);
   if (id === "resultados") return !!analise.resultado;
   if (id === "dimensionamento") return !!(analise.dimensionamento && analise.dimensionamento.perimetroEstrutura && analise.dimensionamento.resistividadeSolo);
   if (id === "mps") return !!(analise.mps && analise.mps.pontosDPS && analise.mps.pontosDPS.length > 0);
