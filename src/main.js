@@ -8,7 +8,9 @@
  * document order.
  */
 import { NEMAX_CALC } from "./engine/nbr5419-2.js";
+import { NEMAX_CALC_P3 } from "./engine/nbr5419-3.js";
 
 Object.assign(window, {
   NEMAX_CALC,
+  NEMAX_CALC_P3,
 });
