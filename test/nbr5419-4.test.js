@@ -72,6 +72,16 @@ describe("Annex C: coordinated SPD selection", () => {
     assert.equal(r.protegido, false);
     assert.equal(r.condicoes.find((x) => x.id === "d").aplicavel, true);
   });
+  test("C.2.1.9 c): for a critical system, meeting a) or b) is not enough", () => {
+    // 0.9 kV ≤ 0.8 × 1.5 kV satisfies b), but not 0.5 × 1.5 kV
+    const r = P4.verificarCondicaoProtecao(0.9, 1.5, 5, true);
+    assert.equal(r.protegido, false);
+    assert.equal(r.condicoes.find((x) => x.id === "b").aplicavel, false);
+    assert.equal(P4.verificarCondicaoProtecao(1.4, 1.5, 0, true).protegido, false);
+    const ok = P4.verificarCondicaoProtecao(0.7, 1.5, 5, true);
+    assert.equal(ok.protegido, true);
+    assert.equal(ok.condicaoSatisfeita, "c");
+  });
   test("C.2.1.6: oscillation may double U_p/f in long circuits", () => {
     assert.equal(P4.avisoOscilacaoCircuitoLongo(1, 2.5).risco, false);
     assert.equal(P4.avisoOscilacaoCircuitoLongo(1.5, 2.5).risco, true);

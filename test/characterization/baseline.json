@@ -8256,7 +8256,7 @@
    },
    "protecao": {
     "protegido": true,
-    "condicaoSatisfeita": "b",
+    "condicaoSatisfeita": "c",
     "condicoes": [
      {
       "id": "a",
@@ -8271,10 +8271,10 @@
       "id": "b",
       "descricao": "Up/f ≤ 0,8 × Uw — comprimento do circuito não maior que 10 m",
       "norma": "ABNT NBR 5419-4:2026, C.2.1.9-b)",
-      "aplicavel": true,
-      "atendida": true,
+      "aplicavel": false,
+      "atendida": false,
       "limite": 3.2,
-      "detalhe": "Up/f (1.060 kV) ≤ 0,8×Uw (3.200 kV)"
+      "detalhe": "Não aplicável — sistema crítico: vale a condição c) (C.2.1.9-c)."
      },
      {
       "id": "c",
@@ -12571,7 +12571,7 @@
     },
     {
      "protegido": true,
-     "condicaoSatisfeita": "b",
+     "condicaoSatisfeita": "c",
      "condicoes": [
       {
        "id": "a",
@@ -12586,10 +12586,10 @@
        "id": "b",
        "descricao": "Up/f ≤ 0,8 × Uw — comprimento do circuito não maior que 10 m",
        "norma": "ABNT NBR 5419-4:2026, C.2.1.9-b)",
-       "aplicavel": true,
-       "atendida": true,
+       "aplicavel": false,
+       "atendida": false,
        "limite": 1.2000000000000002,
-       "detalhe": "Up/f (0.700 kV) ≤ 0,8×Uw (1.200 kV)"
+       "detalhe": "Não aplicável — sistema crítico: vale a condição c) (C.2.1.9-c)."
       },
       {
        "id": "c",
@@ -12617,8 +12617,8 @@
      "sistemaCritico": true
     },
     {
-     "protegido": true,
-     "condicaoSatisfeita": "b",
+     "protegido": false,
+     "condicaoSatisfeita": null,
      "condicoes": [
       {
        "id": "a",
@@ -12633,10 +12633,10 @@
        "id": "b",
        "descricao": "Up/f ≤ 0,8 × Uw — comprimento do circuito não maior que 10 m",
        "norma": "ABNT NBR 5419-4:2026, C.2.1.9-b)",
-       "aplicavel": true,
-       "atendida": true,
+       "aplicavel": false,
+       "atendida": false,
        "limite": 1.2000000000000002,
-       "detalhe": "Up/f (0.900 kV) ≤ 0,8×Uw (1.200 kV)"
+       "detalhe": "Não aplicável — sistema crítico: vale a condição c) (C.2.1.9-c)."
       },
       {
        "id": "c",

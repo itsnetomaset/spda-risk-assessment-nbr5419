@@ -15,3 +15,9 @@ The scenarios cover:
 `test/characterization.test.js` runs the same scenarios against the ES modules in `src/` under Node. Texts, flags and structure must match exactly; numbers are compared with a relative tolerance of 1e-12, because Node and Chromium ship different V8 versions whose transcendental functions (`Math.tan`, `Math.cbrt`, `Math.pow`) can differ in the last bit (38 of the recorded values differ, by at most 4e-16 relative). In Chromium, the refactored app reproduces the baseline bit for bit, including the HTML of all 11 wizard modules and of the printed report. The only field excluded is the `calculadoEm` timestamp.
 
 The baseline must not be regenerated to make a test pass. A difference means behavior changed: either fix the code or, if the change is an intentional correction, update the baseline in its own commit that explains why.
+
+## Intentional changes since the original baseline
+
+Each correction below changed the expected results on purpose. The baseline was recaptured in Chromium in the same commit, and the diff was checked to contain only the entries listed.
+
+- **NBR 5419-4, C.2.1.9 c), critical systems.** The original marked an SPD as protecting a critical system when condition b) (U_p/f ≤ 0.8 · U_W) was met. For a critical system with a circuit of up to 10 m only condition c) (U_p/f ≤ 0.5 · U_W) applies, so a) and b) are now reported as not applicable. Changed: SPD point `limitador_critico` and sweep cases `p4.condicoes[4]` and `[5]` (case 5 is no longer protected).

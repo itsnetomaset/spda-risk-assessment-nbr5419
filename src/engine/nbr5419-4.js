@@ -286,11 +286,16 @@ export const NEMAX_CALC_P4 = (function () {
   }
 
   /* C.2.1.9 — verificação das 4 condições de proteção adequada do equipamento.
-     Retorna qual condição foi satisfeita (se alguma) e o detalhamento de cada uma. */
+     Retorna qual condição foi satisfeita (se alguma) e o detalhamento de cada uma.
+     Sistema crítico com circuito de até 10 m: vale somente a condição c)
+     (0,5 × Uw); as condições a) e b) não bastam para declarar o equipamento
+     protegido. */
   function verificarCondicaoProtecao(UpF, Uw, comprimentoCircuitoM, sistemaCritico) {
     const condicoes = [];
+    const avisoCritico = "Não aplicável — sistema crítico: vale a condição c) (C.2.1.9-c).";
 
-    const condA_aplicavel = comprimentoCircuitoM !== null && comprimentoCircuitoM !== undefined && comprimentoCircuitoM <= 0.01; // "desprezável"
+    const condA_comprimento = comprimentoCircuitoM !== null && comprimentoCircuitoM !== undefined && comprimentoCircuitoM <= 0.01; // "desprezável"
+    const condA_aplicavel = condA_comprimento && !sistemaCritico;
     const condA_atendida = UpF <= Uw;
     condicoes.push({
       id: "a",
@@ -299,11 +304,12 @@ export const NEMAX_CALC_P4 = (function () {
       aplicavel: condA_aplicavel,
       atendida: condA_aplicavel && condA_atendida,
       limite: Uw,
-      detalhe: `Up/f (${UpF.toFixed(3)} kV) ${condA_atendida ? "≤" : ">"} Uw (${Uw} kV)`,
+      detalhe: condA_comprimento && sistemaCritico ? avisoCritico : `Up/f (${UpF.toFixed(3)} kV) ${condA_atendida ? "≤" : ">"} Uw (${Uw} kV)`,
     });
 
     const limiteB = 0.8 * Uw;
-    const condB_aplicavel = comprimentoCircuitoM !== null && comprimentoCircuitoM !== undefined && comprimentoCircuitoM <= 10;
+    const condB_comprimento = comprimentoCircuitoM !== null && comprimentoCircuitoM !== undefined && comprimentoCircuitoM <= 10;
+    const condB_aplicavel = condB_comprimento && !sistemaCritico;
     const condB_atendida = UpF <= limiteB;
     condicoes.push({
       id: "b",
@@ -312,7 +318,7 @@ export const NEMAX_CALC_P4 = (function () {
       aplicavel: condB_aplicavel,
       atendida: condB_aplicavel && condB_atendida,
       limite: limiteB,
-      detalhe: `Up/f (${UpF.toFixed(3)} kV) ${condB_atendida ? "≤" : ">"} 0,8×Uw (${limiteB.toFixed(3)} kV)`,
+      detalhe: condB_comprimento && sistemaCritico ? avisoCritico : `Up/f (${UpF.toFixed(3)} kV) ${condB_atendida ? "≤" : ">"} 0,8×Uw (${limiteB.toFixed(3)} kV)`,
     });
 
     const limiteC = 0.5 * Uw;
